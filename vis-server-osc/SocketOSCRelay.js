@@ -18,7 +18,7 @@ function SocketOSCRelay() {
 var p = SocketOSCRelay.prototype = new EventEmitter();
 
 p.init = function(aServerIP, aServerPort, aOscPort){
-
+	console.log("*** SocketOSCRelay connecting to " + aServerIP + ":" + aServerPort + " ***");
 	this.osc_port = aOscPort;
 
 	this.sock = ioClient("http://" + aServerIP + ":" + aServerPort);
