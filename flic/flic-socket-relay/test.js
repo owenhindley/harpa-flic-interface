@@ -4,16 +4,9 @@ var express = require("express");
 var app = express();
 
 
-var fliclib = require("./fliclibNodeJs");
-var FlicClient = fliclib.FlicClient;
-var FlicConnectionChannel = fliclib.FlicConnectionChannel;
-var FlicScanner = fliclib.FlicScanner;
-
-var client = new FlicClient("localhost", 5551);
-
 var sockClients = [];
 
-var server = app.listen(88);
+var server = app.listen(80);
 var io = socketio.listen(server);
 
 
@@ -30,6 +23,13 @@ io.on("connection", function(socket){
 		}
 	});
 
+	// send test data
+	sendToSockets("data", {
+		macaddress : "test:test:test:test",
+		eventType : "click",
+		value : "ButtonUp"
+	});
+
 });
 
 
@@ -43,8 +43,3 @@ var sendToSockets = function(address, data){
 	
 };
 
-sendToSockets("data", {
-	macaddress : "test:test:test:test",
-	eventType : "click",
-	value : "ButtonUp"
-});
