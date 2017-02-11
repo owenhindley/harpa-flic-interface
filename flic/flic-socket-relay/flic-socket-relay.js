@@ -1,5 +1,3 @@
-var osc = require("osc-min");
-var dgram = require("dgram");
 var socketio = require("socket.io");
 var http = require("http");
 
