@@ -26,6 +26,7 @@ p.init = function(aServerIP, aServerPort, aOscPort){
 		console.log("connected!");
 	});
 	this.sock.on("data", function(data){
+		console.log(data);
 		for (var i=0; i < this.bindings.length; i++){
 			if (this.bindings[i] == data.macaddress){
 				this.sendOSCMessage(this.bindings[i].osc, data);

@@ -19,7 +19,9 @@ for (var i=0; i < RELAY_PORTS.length; i++){
 	
 }
 
-var relay_flic = new 
+var relay_flic = new SocketOSCRelay();
+relay_flic.init("192.168.1.92", 80, 7000);
+
 
 
 
