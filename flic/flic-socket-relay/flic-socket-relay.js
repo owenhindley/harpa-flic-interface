@@ -19,7 +19,7 @@ var server = http.createServer(function(req, res){
 });
 
 var io = socketio(this.server);
-server.listen(aSocketPort);
+server.listen(80);
 
 io.on("connection", function(socket){
 
