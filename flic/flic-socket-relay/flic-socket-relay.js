@@ -1,5 +1,8 @@
 var socketio = require("socket.io");
 var http = require("http");
+var express = require("express");
+var app = express();
+
 
 var fliclib = require("./fliclibNodeJs");
 var FlicClient = fliclib.FlicClient;
@@ -10,16 +13,9 @@ var client = new FlicClient("localhost", 5551);
 
 var sockClients = [];
 
-var server = http.createServer(function(req, res){
-	res.writeHead(200, {
-		'Content-Type': 'text/html',
-		'Access-Control-Allow-Origin' : '*'
-	});
-	res.end("io only");
-});
+var server = app.listen(88);
+var io = socketio.listen(server);
 
-var io = socketio(this.server);
-server.listen(80);
 
 io.on("connection", function(socket){
 
