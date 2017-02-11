@@ -54,7 +54,7 @@ function listenToButton(bdAddr) {
 		console.log(bdAddr + " " + clickType + " " + (wasQueued ? "wasQueued" : "notQueued") + " " + timeDiff + " seconds ago");
 		sendToSockets("data", {
 			macaddress : bdAddr,
-			eventType : click,
+			eventType : "click",
 			value : clickType
 		});
 	});
